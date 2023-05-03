@@ -1,6 +1,6 @@
 {
   "name": "log4js-google-hangout",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Google hangout Appender for log4js-node",
   "homepage": "https://github.com/forgetcz/log4js-google-hangout/",
   "main": "./dist/index.js",
