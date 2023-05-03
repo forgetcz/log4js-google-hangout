@@ -150,16 +150,16 @@ function Log(
             logData = layout(logData);
         }
 
-        // Part messages
-        if (logData.data[0]?.length > maxGoogleHangoutMessageLength) {
-            logData = chunkSubstr(
-                logData.data[0],
-                maxGoogleHangoutMessageLength
-            );
-        }
-
         (async () => {
             try {
+                // Part messages
+                if (logData.data?.length > maxGoogleHangoutMessageLength) {
+                    logData = chunkSubstr(
+                        logData.data[0],
+                        maxGoogleHangoutMessageLength
+                    );
+                }
+
                 if (Array.isArray(logData)) {
                     let count = logData.length;
 

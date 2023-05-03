@@ -18,7 +18,7 @@ log4js.configure({
             type: 'log4js-google-hangout',
             webhookURL: 'https://chat.googleapis.com/v1/spaces/AAAF6x2HikY/messages?key=AIzaSyDdInnCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=ysYMD7pVp7GsOtDTvTjC2gkozfSl5XGQHaY7Xfa9_9Y%3D***',
             layout:''           // layout formater
-            threadName:'',      //thread name in google hangout 
+            threadName:'',      // thread name in google hangout 
             consoleLogging:''   // true, false to enable logging
             threadName:'****'   // hread to send message
         }
