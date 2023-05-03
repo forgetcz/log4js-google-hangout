@@ -145,13 +145,13 @@ function Log(
     return (loggingEvent: any) => {
         let logData = loggingEvent;
 
-        // Apply layout (formation) in case layout is defined
-        if (layout) {
-            logData = layout(logData);
-        }
-
         (async () => {
             try {
+                // Apply layout (formation) in case layout is defined
+                if (layout) {
+                    logData = layout(logData);
+                }
+
                 // Part messages
                 if (logData.data?.length > maxGoogleHangoutMessageLength) {
                     logData = chunkSubstr(
