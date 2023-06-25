@@ -1,16 +1,16 @@
 import got, { OptionsOfJSONResponseBody, RequestError } from 'got';
 import * as log4js from 'log4js';
+import { maxGoogleHangoutMessageLength } from './types/constants';
 import {
     IGoogleHangoutAppenderConfiguration,
     IHangoutResult,
-    maxGoogleHangoutMessageLength,
 } from './types/types';
 
 /**
  * @description Get log level result undefined is some as true
  *
  * @param {(boolean | undefined)} consoleLogging
- * @return {*}  {boolean}
+ * @return {boolean}
  */
 function getConsoleLogResult(consoleLogging: boolean | undefined): boolean {
     if (consoleLogging === undefined || consoleLogging === true) {
@@ -51,7 +51,7 @@ export const MongoDbAppender: log4js.AppenderModule = {
  *
  * @param {string} str
  * @param {number} size
- * @return {string[]}  {string[]}
+ * @return {string[]}
  */
 function chunkSubstr(str: string, size: number): string[] {
     const numChunks = Math.ceil(str.length / size);
@@ -69,8 +69,8 @@ function chunkSubstr(str: string, size: number): string[] {
  *
  * @export
  * @param {IGoogleHangoutAppenderConfiguration} config
- * @param {*} message
- * @return {*}  {Promise<IHangoutResult>}
+ * @param {any} message
+ * @return {Promise<IHangoutResult>}
  */
 export async function sendMessage(
     config: IGoogleHangoutAppenderConfiguration,
@@ -122,7 +122,9 @@ export async function sendMessage(
  * @description Base appender function
  *
  * @param {IGoogleHangoutAppenderConfiguration} config Configuration for mongo
- * @param {log4js.LayoutsParam} layouts log4js layouts collection
+ * @param {(log4js.LayoutsParam | undefined)} layouts log4js layouts collection
+ * @param {() => log4js.AppenderFunction} [findAppender]
+ * @param {log4js.Levels} [levels]
  * @return {*}
  */
 function Log(
@@ -215,7 +217,6 @@ function Log(
 }
 
 if (require.main === module) {
-    // ##DEBUG_JVR
     const webHookUrl =
         'https://chat.googleapis.com/v1/spaces/AAAA6x2HikY/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=ysYMD7pVp7GsOCLDTvTjC2gkozSl5XGQHaY7Xfa9_9Y%3D';
 

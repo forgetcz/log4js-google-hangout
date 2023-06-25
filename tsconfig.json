@@ -17,6 +17,6 @@
       "lib": ["es2017", "dom"],
       "skipLibCheck": true,
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "types/**/*"],
   "exclude": [ "node_modules", "**/*.spec.ts", "**/*.test.ts", "**/__tests__/*", "**/*__mocks__*" ]
 }

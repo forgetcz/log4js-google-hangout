@@ -28,14 +28,17 @@
   "keywords": [
     "logging",
     "log",
-    "log4js"
+    "log4js",
+    "google",
+    "chat",
+    "hangouts"
   ],
   "author": "ing. Jiri Vrabec",
   "license": "ISC",
   "dependencies": {
     "got": "^11.8.3",
     "log4js": "^6.9.1",
-    "log4js-layouts": "^0.1.4"
+    "log4js-layouts": "file:../log4js-layouts"
   },
   "devDependencies": {
     "@types/got": "^9.6.12",
