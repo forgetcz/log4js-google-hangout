@@ -114,6 +114,20 @@ export async function sendMessage(
 
         return result.body;
     } catch (err) {
+        if (getConsoleLogResult(config.consoleLogging)) {
+            const logError = {
+                message: `${config.type} error send message to ${config.webHookUrl}`,
+                error: err,
+                detailInfo: {
+                    logPrefix: `${__filename}[${sendMessage.name}]`,
+                    config: config,
+                    responseBody: (err as RequestError)?.response?.body,
+                },
+            };
+
+            console.log(logError);
+        }
+
         throw err;
     }
 }
